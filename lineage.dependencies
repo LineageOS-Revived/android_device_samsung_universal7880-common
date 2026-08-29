@@ -26,5 +26,9 @@
     {
         "repository": "android_kernel_samsung_universal7880",
         "target_path": "kernel/samsung/universal7880"
+    },
+    {
+        "repository": "proprietary_vendor_samsung_universal7880-common",
+        "target_path": "vendor/samsung/universal7880-common"
     }
 ]
