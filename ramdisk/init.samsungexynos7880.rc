@@ -202,23 +202,6 @@ on boot
     # sec_log
     chown system log /proc/sec_log
 
-    # Permissions for NAD
-    symlink /dev/block/platform/13540000.dwmmc0/by-name/NAD_REFER /dev/block/NAD_REFER
-    chown system radio /sys/class/sec/sec_nad/nad_stat
-    chmod 0664 /sys/class/sec/sec_nad/nad_stat
-    chown system radio /sys/class/sec/sec_nad/nad_erase
-    chmod 0664 /sys/class/sec/sec_nad/nad_erase
-    chown system radio /sys/class/sec/sec_nad/nad_acat
-    chmod 0664 /sys/class/sec/sec_nad/nad_acat
-    chown system radio /sys/class/sec/sec_nad/nad_dram
-    chmod 0664 /sys/class/sec/sec_nad/nad_dram
-    chown system radio /sys/class/sec/sec_nad/nad_all
-    chmod 0664 /sys/class/sec/sec_nad/nad_all
-    chown system radio /sys/class/sec/sec_nad/nad_support
-    chmod 0664 /sys/class/sec/sec_nad/nad_support
-    chown system radio /dev/block/NAD_REFER
-    chmod 0664 /dev/block/NAD_REFER
-
     # Change permission for interactive governor
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate
