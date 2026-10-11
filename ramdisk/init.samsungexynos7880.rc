@@ -111,8 +111,8 @@ on post-fs-data
     mkdir /data/validity 0770 system system
 
 on boot
-# SSWAP
-    write /proc/sys/vm/swappiness 130
+# ZRAM
+    write /proc/sys/vm/swappiness 100
 
     # override init.rc to keep plenty of large order chunks around
     # to improve allocation times
@@ -635,11 +635,3 @@ on property:init.svc.bootanim=stopped
     chown system system /efs/FactoryApp/tkey_light13
     chown system system /efs/FactoryApp/tkey_light14
     chown system system /efs/FactoryApp/tkey_light15
-
-# SSWAP
-service swapon /sbin/sswap -s -f 1536
-    class core
-    user root
-    group root
-    seclabel u:r:sswap:s0
-    oneshot
