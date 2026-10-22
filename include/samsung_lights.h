@@ -27,6 +27,28 @@
 #define PANEL_BRIGHTNESS_NODE "/sys/class/backlight/panel/brightness"
 // The panel exposes 0-365, but normal brightness uses 0-255.
 // Leave PANEL_MAX_BRIGHTNESS_NODE undefined to exclude the extended range.
+// Linear light levels mapped to the panel driver's normal 0-255 range.
+// Derived from the shared A5/A7 brightness_table in s6e3fa3_panel_params.h.
+static constexpr unsigned int panel_brightness_map[256] = {
+    0, 0, 1, 9, 17, 21, 29, 37, 41, 47, 49, 53, 55, 57, 61, 63,
+    65, 65, 69, 71, 71, 73, 75, 75, 77, 79, 81, 81, 83, 83, 85, 85,
+    87, 87, 89, 89, 91, 91, 93, 93, 93, 95, 95, 97, 97, 97, 99, 99,
+    99, 101, 101, 101, 103, 103, 103, 105, 105, 105, 107, 107, 107, 107, 109, 109,
+    109, 109, 111, 111, 111, 111, 113, 113, 113, 113, 113, 115, 115, 115, 115, 117,
+    117, 117, 117, 117, 117, 119, 119, 119, 119, 119, 121, 121, 121, 121, 121, 121,
+    123, 123, 123, 123, 123, 123, 125, 125, 125, 125, 125, 125, 127, 127, 127, 127,
+    127, 127, 127, 129, 129, 129, 129, 129, 129, 129, 129, 136, 136, 136, 136, 136,
+    136, 136, 143, 143, 143, 143, 143, 143, 143, 143, 150, 150, 150, 150, 150, 150,
+    150, 150, 150, 158, 158, 158, 158, 158, 158, 158, 158, 158, 158, 166, 166, 166,
+    166, 166, 166, 166, 166, 166, 166, 175, 175, 175, 175, 175, 175, 175, 175, 175,
+    175, 184, 184, 184, 184, 184, 184, 184, 184, 184, 184, 184, 194, 194, 194, 194,
+    194, 194, 194, 194, 194, 194, 202, 202, 202, 202, 202, 202, 202, 202, 202, 202,
+    211, 211, 211, 211, 211, 211, 211, 220, 220, 220, 220, 220, 224, 224, 224, 224,
+    228, 228, 228, 228, 228, 231, 231, 231, 231, 235, 235, 235, 235, 235, 239, 239,
+    239, 239, 239, 243, 243, 243, 243, 243, 247, 247, 247, 247, 247, 251, 251, 255,
+};
+#define PANEL_BRIGHTNESS_MAP panel_brightness_map
+
 #define BUTTON_BRIGHTNESS_NODE "/sys/class/sec/sec_touchkey/brightness"
 #define LED_BLINK_NODE "/sys/class/sec/led/led_blink"
 #define LED_BLN_NODE "/sys/class/misc/backlightnotification/notification_led"
