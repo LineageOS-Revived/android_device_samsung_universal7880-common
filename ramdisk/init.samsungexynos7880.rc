@@ -111,6 +111,9 @@ on post-fs-data
     mkdir /data/validity 0770 system system
 
 on boot
+    # Select the panel's 2-nit ALPM mode for AOD.
+    write /sys/class/lcd/panel/alpm 1
+
 # ZRAM
     write /proc/sys/vm/swappiness 100
 
